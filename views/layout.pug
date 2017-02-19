@@ -1,0 +1,38 @@
+html
+	head
+		title= app.title
+		meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+		link(rel="icon" href="img/logo.png")
+
+		//- Fonts & Icons
+		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+		link(href="https://fonts.googleapis.com/css?family=Lato|Raleway" rel="stylesheet")
+
+		//- Styles
+		link( rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css" )
+		link( rel="stylesheet" href="/styles/global.css" )
+
+		block head
+
+	body
+
+		if app.showNavbar
+			include shared/navbar/index.pug
+
+		#app( style=( app.showNavbar ? "padding-top: 50px" : ""))
+			block content
+
+		if app.showFooter
+			include shared/footer/index.pug
+
+		if app.production
+			script(src="https://cdnjs.cloudflare.com/ajax/libs/vuex/2.1.1/vuex.min.js")
+			script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js")
+		else
+			script( src="https://cdnjs.cloudflare.com/ajax/libs/vuex/2.1.1/vuex.js" )
+			script( src="https://unpkg.com/vue/dist/vue.js" )
+
+		if app.showNavbar
+			include shared/navbar/app.pug
+
+		block scripts

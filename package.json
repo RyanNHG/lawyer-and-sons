@@ -1,0 +1,27 @@
+{
+  "name": "surprise",
+  "version": "1.0.0",
+  "description": "It's a surprise.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node node_modules/nodemon/bin/nodemon.js --watch models --watch routes --watch updates --watch app.js --watch routes.js --watch .env app.js",
+    "mongodb": "docker-compose up"
+  },
+  "keywords": [
+    "such",
+    "wow"
+  ],
+  "author": "Ryan Haskell-Glatz",
+  "license": "ISC",
+  "dependencies": {
+    "keystone": "^4.0.0-beta.1",
+    "node-sass": "^4.3.0",
+    "node-sass-middleware": "^0.11.0",
+    "pug": "^2.0.0-beta6"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "nodemon": "^1.11.0"
+  }
+}

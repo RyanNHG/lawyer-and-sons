@@ -1,0 +1,64 @@
+@import 'variables';
+
+html {
+    overflow: auto;
+    font-family: 'Open Sans';
+}
+
+body {
+    font-family: $body-font;
+}
+
+.title {
+    font-family: $title-font;
+    text-transform: uppercase;
+}
+
+.hero.is-primary {
+
+    background-color: $primary-color;
+
+    &.is-bold {
+        background: linear-gradient(141deg, $primary-color-hover 0, $primary-color 71%, $primary-color-active 100%)
+    }
+
+}
+
+.has-shadow {
+    box-shadow: 0 2px 3px rgba(10,10,10,.1);
+}
+
+#navbar {
+
+    .mobile-menus {
+        z-index: 0;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        padding-top: 50px;
+        height: 0;
+    }
+
+    .mobile-menu, .invisible-wall {
+
+        transition: transform .3s;
+        transform: translateY(-100%);
+
+        &.visible {
+
+            transform: translateY(0%);
+
+        }
+
+    }
+
+    .invisible-wall {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+    }
+
+}

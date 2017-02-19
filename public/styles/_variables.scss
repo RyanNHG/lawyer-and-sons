@@ -1,0 +1,25 @@
+// Brand Colors
+$blue-color: #4D5D73;
+$gray-color: #DBDBD6;
+$red-color: #B34E4D;
+
+$primary-color: $blue-color;
+$primary-color-hover: lighten($primary-color, 10%);
+$primary-color-active: darken($primary-color, 10%);
+
+$secondary-color: $gray-color;
+$secondary-color-hover: lighten($secondary-color, 10%);
+$secondary-color-active: darken($secondary-color, 10%);
+
+$cta-color: $red-color;
+$cta-color-hover: lighten($cta-color, 10%);
+$cta-color-active: darken($cta-color, 10%);
+
+// Breakpoints
+$mobile-max-width: 480px;
+$tablet-max-width: 720px;
+$desktop-max-width: 1280px;
+
+// Fonts
+$body-font: 'Raleway', sans-serif;
+$title-font: 'Lato', serif;

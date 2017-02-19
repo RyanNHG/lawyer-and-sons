@@ -1,0 +1,18 @@
+footer.footer(style="padding-bottom: 3rem")
+    .container
+
+        .is-hidden-mobile
+            .block
+                each link in footer.links
+                    a.button( href=link.url alt=link.label title=link.label )
+                        i.fa( class=link.icon )
+
+                h3.title.is-5.is-pulled-right=footer.copyrightText
+
+        .is-hidden-tablet
+
+            .is-flex( style="justify-content: center; margin-bottom: 20px;")
+                each link in footer.links
+                    a.button( href=link.url alt=link.label title=link.label )
+                        i.fa( class=link.icon )
+            h3.has-text-centered.title.is-5=footer.copyrightText

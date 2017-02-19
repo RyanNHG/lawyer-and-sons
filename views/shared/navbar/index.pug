@@ -1,0 +1,57 @@
+mixin navbarBrand
+
+    a.nav-item( href="/" alt=navbar.brandLabel title=navbar.brandLabel )
+        //- if navbar.brandLogo
+        //-     img( src=navbar.brandLogo.url alt=navbar.brandLabel style="padding-right: 10px" )
+        h3.title.is-5=navbar.brandLabel
+
+mixin longSearchBar
+
+    p.control.has-addons
+      input.input( v-model="searchQuery" v-on:keyup.enter="search()" type="text" placeholder=navbar.searchPlaceholder)
+      button.button.is-gray( v-on:click="search()" )
+        i.fa.fa-search
+
+#navbar(style="position: fixed; top: 0; width: 100%")
+    nav.nav.has-shadow(style="z-index: 1;")
+        .container
+
+            .nav-left.is-hidden-mobile
+                +navbarBrand
+
+            .nav-left.is-hidden-tablet
+                .nav-item
+                    button.button.is-gray( v-on:click="toggleMobileMenu()" )
+                        i.fa.fa-bars
+
+            .nav-center.is-hidden-tablet
+                +navbarBrand
+
+            .nav-right
+
+                each link in navbar.links
+                    a.nav-item.is-hidden-mobile( href=link.url alt=link.label title=link.label)=link.label
+
+                .nav-item.is-hidden-touch.is-pulled-right
+                    +longSearchBar
+
+                .nav-item.is-hidden-desktop.is-pulled-right
+                    button.button.is-gray( v-on:click="toggleMobileSearch()" )
+                      i.fa.fa-search
+
+    .invisible-wall( v-bind:class="{ 'visible': showInvisibleWall }" v-on:click="hideMobileMenus()" )
+
+    .mobile-menus
+
+        //- Mobile Search
+        aside.mobile-menu.nav.has-shadow.is-hidden-tablet(v-bind:class="{ 'visible': showMobileSearch }" style="position: absolute; width: 100%;")
+            .nav-center
+                .nav-item
+                    +longSearchBar
+
+        //- Mobile Menu
+        aside.menu.is-hidden-tablet.has-shadow.mobile-menu(v-bind:class="{ 'visible': showMobileMenu }" style="background-color:white;")
+            ul.menu-list.has-text-centered(style="padding: 10px 0;")
+                each link in navbar.links
+                    li
+                        a.nav-item( href=link.url alt=link.label title=link.label)=link.label
