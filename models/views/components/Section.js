@@ -19,6 +19,10 @@ Section.add({
         type: Types.Text
     },
 
+    subheader: {
+        type: Types.Text
+    },
+
     body: {
         type: Types.Html,
         wysiwyg: true
@@ -31,20 +35,6 @@ Section.add({
 
     image: {
         type: Types.CloudinaryImage
-    },
-
-    backgroundColor: {
-        type: Types.Relationship,
-        ref: 'BrandColor'
-    },
-
-    backgroundImage: {
-        type: Types.CloudinaryImage
-    },
-
-    isLeftAligned: {
-        type: Types.Boolean,
-        default: true
     }
 
 })

@@ -1,18 +1,33 @@
 mixin navbarBrand
 
     a.nav-item( href="/" alt=navbar.brandLabel title=navbar.brandLabel )
-        //- if navbar.brandLogo
-        //-     img( src=navbar.brandLogo.url alt=navbar.brandLabel style="padding-right: 10px" )
+        if navbar.brandLogo
+            img( src=navbar.brandLogo.url alt=navbar.brandLabel style="padding-right: 10px" )
         h3.title.is-5=navbar.brandLabel
 
 mixin longSearchBar
 
     p.control.has-addons
-      input.input( v-model="searchQuery" v-on:keyup.enter="search()" type="text" placeholder=navbar.searchPlaceholder)
-      button.button.is-gray( v-on:click="search()" )
+      input.input.search-input(
+          v-model="searchQuery"
+          v-on:keyup.enter="search()"
+          v-bind:class="{ 'is-disabled': searching }"
+          type="search"
+          placeholder=navbar.searchPlaceholder)
+      button.button.is-gray(
+          v-on:click="search()"
+          v-bind:class="{ 'is-disabled': searching, 'is-loading': searching }")
         i.fa.fa-search
 
-#navbar(style="position: fixed; top: 0; width: 100%")
+mixin navLink(link)
+    a.nav-item(
+        href=link.url
+        alt=link.label
+        title=link.label
+        v-bind:class="{ 'is-active': '" + link.url + "' === pathname, 'is-disabled': '" + link.url + "' === pathname }"
+        v-bind:disabled="'" + link.url + "' === pathname")=link.label
+
+#navbar(style="position: fixed; top: 0; width: 100%; z-index: 1;")
     nav.nav.has-shadow(style="z-index: 1;")
         .container
 
@@ -29,8 +44,9 @@ mixin longSearchBar
 
             .nav-right
 
-                each link in navbar.links
-                    a.nav-item.is-hidden-mobile( href=link.url alt=link.label title=link.label)=link.label
+                .is-hidden-mobile.nav-item
+                    each link in navbar.links
+                        +navLink(link)
 
                 .nav-item.is-hidden-touch.is-pulled-right
                     +longSearchBar
@@ -44,7 +60,7 @@ mixin longSearchBar
     .mobile-menus
 
         //- Mobile Search
-        aside.mobile-menu.nav.has-shadow.is-hidden-tablet(v-bind:class="{ 'visible': showMobileSearch }" style="position: absolute; width: 100%;")
+        aside.mobile-menu.nav.has-shadow.is-hidden-desktop(v-bind:class="{ 'visible': showMobileSearch }" style="position: absolute; width: 100%;")
             .nav-center
                 .nav-item
                     +longSearchBar
@@ -54,4 +70,4 @@ mixin longSearchBar
             ul.menu-list.has-text-centered(style="padding: 10px 0;")
                 each link in navbar.links
                     li
-                        a.nav-item( href=link.url alt=link.label title=link.label)=link.label
+                        +navLink(link)

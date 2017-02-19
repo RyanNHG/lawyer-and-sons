@@ -24,6 +24,42 @@ body {
 
 }
 
+.is-secondary {
+
+    background-color: $secondary-color;
+    border-color: $secondary-color-active;
+
+    &.button:hover {
+        background-color: $secondary-color-hover;
+    }
+
+    &.button.is-active {
+        background-color: $secondary-color-active;
+    }
+
+}
+
+.is-cta {
+
+    background-color: $cta-color;
+    border-color: $cta-color-active;
+    color: white;
+
+
+    &.button:hover {
+        background-color: $cta-color-hover;
+        color: white;
+    }
+
+    &.button.is-focused,
+    &.button:focus,
+    &.button.is-active {
+        background-color: $cta-color-active;
+        color: white;
+    }
+
+}
+
 .has-shadow {
     box-shadow: 0 2px 3px rgba(10,10,10,.1);
 }
@@ -59,6 +95,64 @@ body {
         left: 0;
         right: 0;
         opacity: 0;
+    }
+
+    .mobile-menu .search-input {
+        min-width: 50vw;
+    }
+
+    .menu-list a.is-active {
+
+        background-color: initial;
+
+    }
+
+}
+
+.page-section {
+
+    &.is-dark, &.is-primary {
+
+        .section {
+            background: none;
+        }
+
+        .content {
+            color: white;
+        }
+
+    }
+
+    .columns.is-reversed {
+
+        flex-direction: row-reverse;
+
+    }
+
+    .text-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .button.is-cta {
+            align-self: center;
+        }
+
+    }
+
+    .image-column {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+
+            max-height: 50vh;
+
+        }
+
     }
 
 }

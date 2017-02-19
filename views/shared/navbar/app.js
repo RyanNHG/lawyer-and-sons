@@ -3,9 +3,14 @@ var navbarVm = new Vue({
     el: '#navbar',
 
     data: {
+
+        pathname: window.location.pathname,
+
         showMobileMenu: false,
         showMobileSearch: false,
-        searchQuery: ''
+
+        searchQuery: '',
+        searching: false
     },
 
     computed: {
@@ -38,7 +43,17 @@ var navbarVm = new Vue({
         },
 
         search: function(){
-            console.log(this.searchQuery);
+
+            var _self = this;
+
+            _self.searching = true;
+
+            setTimeout(function(){
+
+                _self.searching = false;
+
+            }, 2000);
+
         }
 
 

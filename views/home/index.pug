@@ -1,5 +1,12 @@
 extends ../layout.pug
 
+mixin sectionTitle(section)
+	.has-text-centered
+		if section.header
+			h3.title.is-1=section.header
+		if section.subheader
+			h4.subtitle.is-3=section.subheader
+
 block content
 
 	//- 'Intro' Section
@@ -7,14 +14,42 @@ block content
 		.hero-body.has-text-centered
 			h1.title.is-1=page.header
 			h2.subtitle.is-3=page.subheader
+			button.button.is-cta.is-medium(
+				v-on:click="setIntroCtaClicked()"
+				v-bind:class="{ 'is-disabled': introCtaClicked }"
+				v-html="introCtaText"
+			)="Really?"
 
 	//- Sections
-	.intro-section.hero.is-default.is-large
-		.hero-body.has-text-centered
-			h1.title.is-1=page.header
-			h2.subtitle.is-3=page.subheader
+	each section, index in page.sections
+		.hero.is-medium.content.section.page-section(
+			class=(index % 2 == 0 ? "is-default" : "is-primary" ))
+			.container
 
-	.intro-section.hero.is-primary.is-bold.is-large
-		.hero-body.has-text-centered
-			h1.title.is-1=page.header
-			h2.subtitle.is-3=page.subheader
+				if section.header || section.subheader
+					.hero-head
+						.is-hidden-tablet.has-text-centered
+							+sectionTitle(section)
+						.columns.is-mobile( class=(index % 2 == 0 ? "" : "is-reversed" ) )
+							.column.text-column.section
+								.is-hidden-mobile
+									+sectionTitle(section)
+								if section.body || section.callToAction
+									.content!=section.body
+									if section.callToAction
+										a.button.title.is-medium.is-cta(
+											href=section.callToAction.url
+										)='See our ' + section.callToAction.label
+							if section.image
+								.column.is-half.image-column.is-hidden-mobile
+									img( src=section.image.url )
+
+				else if section.body
+					.hero-body
+						if section.body
+							.content!=section.body
+
+block scripts
+
+	script(type="text/javascript")
+		include app.js

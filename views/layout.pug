@@ -19,7 +19,7 @@ html
 		if app.showNavbar
 			include shared/navbar/index.pug
 
-		#app( style=( app.showNavbar ? "padding-top: 50px" : ""))
+		#app( style=( app.showNavbar ? "padding-top: 50px; position: relative; z-index: 0;" : ""))
 			block content
 
 		if app.showFooter
