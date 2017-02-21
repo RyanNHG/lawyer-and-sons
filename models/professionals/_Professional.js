@@ -1,14 +1,11 @@
 var keystone = require('keystone'),
-    Types = keystone.Field.Types,
-    _Professional = keystone.List('Professional')
+    Types = keystone.Field.Types
 
-if(_Professional === undefined) {
-    _Professional = new keystone.List('Professional', {
-        autokey: { path: 'slug', from: 'name', unique: true },
-        defaultSort: '-name',
-        hidden: true
-    })
-}
+var _Professional = new keystone.List('Professional', {
+    autokey: { path: 'slug', from: 'name', unique: true },
+    defaultSort: 'name',
+    hidden: true
+})
 
 _Professional.add({
 

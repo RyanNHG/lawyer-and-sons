@@ -24,7 +24,7 @@ function getHomepage() {
     return HomePage.model
         .find()
         .limit(1)
-        .populate('sections sections')
+        .populate('sections')
         .exec()
         .then(function(homePages) {
 

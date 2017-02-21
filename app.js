@@ -65,7 +65,7 @@ keystone.set('nav', {
 
 	pages: [
 		'HomePage',
-        // 'SearchPage',
+        'SearchPage',
         // 'PeoplePage',
         // 'ArticlePage',
         // 'CareersPage',
@@ -97,7 +97,8 @@ keystone.set('nav', {
 	other: [
         'User',
         'Link',
-		'BrandColor'
+		'BrandColor',
+		'List'
     ]
 
 })

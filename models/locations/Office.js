@@ -3,7 +3,7 @@ var keystone = require('keystone'),
 
 var Office = new keystone.List('Office', {
     autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: '-name'
+    defaultSort: 'name'
 })
 
 Office.add({

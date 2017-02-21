@@ -3,7 +3,7 @@ var keystone = require('keystone'),
 
 var Industry = new keystone.List('Industry', {
     autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: '-name'
+    defaultSort: 'name'
 })
 
 Industry.add({

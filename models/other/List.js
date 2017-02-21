@@ -1,28 +1,32 @@
 var keystone = require('keystone'),
     Types = keystone.Field.Types
 
-var BrandColor = new keystone.List('BrandColor', {
+var List = new keystone.List('List', {
     autokey: { path: 'slug', from: 'name', unique: true },
-    map: { name: 'label' },
     defaultSort: 'name'
 })
 
-BrandColor.add({
+List.add({
 
-    label: {
+    name: {
         type: Types.Text,
         required: true,
         initial: true,
     },
 
-    color: {
-        type: Types.Color,
+    keystoneList: {
+        type: Types.Text,
         required: true,
-        initial: true
+        initial: true,
+        unique: true
+    },
+
+    searchQueryField: {
+        type: Types.Text,
+        required: true,
+        default: 'name'
     }
 
 })
 
-BrandColor.defaultColumns = 'label color'
-
-BrandColor.register()
+List.register()

@@ -4,7 +4,7 @@ var keystone = require('keystone'),
 // TODO: Create a _Service.js because this is literally one field more than Industry.js
 var Practice = new keystone.List('Practice', {
     autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: '-name'
+    defaultSort: 'name'
 })
 
 Practice.add({

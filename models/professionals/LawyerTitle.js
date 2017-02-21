@@ -3,7 +3,7 @@ var keystone = require('keystone'),
 
 var LawyerTitle = new keystone.List('LawyerTitle', {
     autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: '-name'
+    defaultSort: 'name'
 })
 
 LawyerTitle.add({

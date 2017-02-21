@@ -3,7 +3,7 @@ var keystone = require('keystone'),
 
 var PracticeArea = new keystone.List('PracticeArea', {
     autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: '-name'
+    defaultSort: 'name'
 })
 
 PracticeArea.add({
@@ -13,6 +13,11 @@ PracticeArea.add({
         required: true,
         unique: true,
         initial: true
+    },
+
+    practice: {
+        type: Types.Relationship,
+        ref: 'Practice'
     }
 
 })

@@ -3,7 +3,7 @@ var keystone = require('keystone'),
 
 var Publication = new keystone.List('Publication', {
     autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: '-name',
+    defaultSort: 'name',
     drilldown: 'authors'
 })
 
