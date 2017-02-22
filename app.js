@@ -41,7 +41,7 @@ keystone.init({
 	'auto update': true,
 
 	// Cloudinary Configuration (http://keystonejs.com/docs/configuration/#services-cloudinary)
-	'cloudinary config': process.env.CLOUDINARY_URL || 'CLOUDINARY_URL=cloudinary://something:other-thing@user',
+	'cloudinary config': process.env.CLOUDINARY_URL || 'cloudinary://api_key:api_secret@cloud_name',
 	'cloudinary prefix': 'lawyer-and-sons',
 	'cloudinary folders': true
 
@@ -50,7 +50,7 @@ keystone.init({
 // Cloudinary
 if(process.env.CLOUDINARY_URL === undefined) {
 
-	console.info('No Cloudinary URL provided.');
+	console.warn(`\nNo CLOUDINARY_URL provided (Can't upload images)\n`);
 
 }
 
@@ -65,21 +65,21 @@ keystone.set('nav', {
 
 	pages: [
 		'HomePage',
-        'SearchPage',
-        // 'PeoplePage',
-        // 'ArticlePage',
-        // 'CareersPage',
+		'SearchPage',
+		// 'PeoplePage',
+		// 'ArticlePage',
+		// 'CareersPage',
 		// 'LocationsPage'
-    ],
-    components: [
-    	'Navbar',
-    	'Footer',
+	],
+	components: [
+		'Navbar',
+		'Footer',
 		'Section'
 	],
 	professionals: [
-        'Lawyer',
+		'Lawyer',
 		'LawyerTitle'
-        // 'Staff'
+		// 'Staff'
 	],
 	services: [
 		'Industry',
@@ -88,18 +88,18 @@ keystone.set('nav', {
 	],
 	articles: [
 		// 'Event',
-        'Publication',
-        // 'News'
+		'Publication',
+		// 'News'
 	],
 	locations: [
 		'Office'
 	],
 	other: [
-        'User',
-        'Link',
+		'User',
+		'Link',
 		'BrandColor',
 		'List'
-    ]
+	]
 
 })
 
