@@ -5,7 +5,7 @@
 
 This is a website powered by _[KeystoneJS](http://www.keystonejs.com)_, _[MongoDB](http://www.mongodb.com)_, all contained in an isolated [Docker](http://www.docker.com) environment.
 
-One of the benefits of using __Docker__ for local development, is that it takes care of creating the NodeJS and MongoDB services for you. No more worrying about following a complicated setup steps just to get up and running.
+One of the benefits of using __Docker__ for local development, is that it takes care of creating the NodeJS and MongoDB services for you. No more worrying about following complicated setup steps just to get up and running.
 
 One command (`docker-compose up`) will create your own local KeystoneJS server, MongoDB database, and __automatically__ updates the site whenever you save a file.
 
@@ -54,6 +54,7 @@ __`models/`__ | Stores all the KeystoneJS models
 __`views/`__ | Stores layouts, pages, and components used on the site
 __`public/`__ | Assets (`sass`, images, etc) for our site
 __`logic/`__ | Reusable functionality that is used by multiple routes
+__`updates/`__ | Initializes empty databases (no more downloading backups)
 
 
 ### Navigating around
