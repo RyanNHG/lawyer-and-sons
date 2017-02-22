@@ -2,8 +2,7 @@ var keystone = require('keystone'),
     Types = keystone.Field.Types
 
 var PracticeArea = new keystone.List('PracticeArea', {
-    autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: 'name'
+    autokey: { path: 'slug', from: 'name', unique: true }
 })
 
 PracticeArea.add({

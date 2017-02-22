@@ -1,30 +1,55 @@
 var keystone = require('keystone'),
-    SearchPage = keystone.list('SearchPage')
+    SearchPage = keystone.list('SearchPage'),
+    searchLogic = require('../../logic/search')
 
 exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res)
     var locals = res.locals
 
-    getSearchPage(req.originalUrl).then(function(searchPage) {
+    getSearchPage(req.path).then(function(searchPage) {
 
         if(searchPage === undefined)
             res.redirect('/oops')
 
-        locals.page = searchPage
-        locals.data = JSON.stringify({})
+        var query = req.query.keyword
 
-        view.render('search/index')
+        var data = {
+            lists: searchPage.types.map( type => type.keystoneList )
+        }
+
+        if (query == undefined) {
+
+            locals.page = searchPage
+            locals.data = JSON.stringify(data)
+
+            view.render('search/index')
+
+        } else {
+
+            performSearch(searchPage, query).then(function(results) {
+
+                data.lastQuery = query
+                data.results = results
+
+                locals.page = searchPage
+                locals.data = JSON.stringify(data)
+
+                view.render('search/index')
+
+            })
+
+        }
 
     })
     .catch(console.error)
 
 }
 
-function getSearchPage(originalUrl) {
+function getSearchPage (path) {
 
     return SearchPage.model
-        .find({ url: originalUrl })
+        .find({ url: path })
         .limit(1)
         .populate('types')
         .exec()
@@ -43,5 +68,13 @@ function getSearchPage(originalUrl) {
             }
 
         })
+
+}
+
+function performSearch (searchPage, query) {
+
+    var lists = searchPage.types.map( type => type.keystoneList )
+
+    return searchLogic.getSearchResults(lists, query).catch(console.error)
 
 }

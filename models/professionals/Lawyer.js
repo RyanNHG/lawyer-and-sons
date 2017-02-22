@@ -3,7 +3,6 @@ var keystone = require('keystone'),
 
 var Lawyer = new keystone.List('Lawyer', {
     autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: 'name',
     hidden: false,
     inherits: require('./_Professional')
 })

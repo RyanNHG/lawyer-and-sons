@@ -3,7 +3,6 @@ var keystone = require('keystone'),
 
 var _Professional = new keystone.List('Professional', {
     autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: 'name',
     hidden: true
 })
 

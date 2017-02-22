@@ -13,7 +13,7 @@ var vm = new Vue({
 
         errorMessage: undefined,
 
-        lists: data.lists || ['Lawyer'],
+        lists: data.lists || [],
         results: data.results || [],
 
         sortAscending: true
@@ -30,7 +30,7 @@ var vm = new Vue({
 
         showResultsLabel: function () {
 
-            return this.showError || this.displayedResults.length > 0;
+            return this.showError || this.lastQuery.length > 0;
 
         },
 
@@ -42,7 +42,9 @@ var vm = new Vue({
 
             } else {
 
-                return this.displayedResults.length + ' results for ' + this.lastQuery + ':';
+                var displayedQuery = (this.lastQuery.length > 8 ) ? this.lastQuery.substring(0,5) + '...' : this.lastQuery
+
+                return this.displayedResults.length + ' results for "' + displayedQuery + '"';
 
             }
 
@@ -97,24 +99,11 @@ var vm = new Vue({
                 this.errorMessage = undefined;
                 this.lastQuery = this.query;
                 this.query = '';
-                this.results = this.sanitize(response.data[0]);
+                this.results = response.data;
 
             }
 
             this.searching = false;
-
-        },
-
-        sanitize: function(results) {
-
-            return results.map(function(result) {
-
-                if(result.name !== undefined && result.name.first !== undefined)
-                    result.name = result.name.first + ' ' + result.name.last;
-
-                return result;
-
-            });
 
         },
 

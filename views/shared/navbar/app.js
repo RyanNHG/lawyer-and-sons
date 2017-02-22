@@ -46,13 +46,18 @@ var navbarVm = new Vue({
 
             var _self = this;
 
-            _self.searching = true;
+            if (_self.searching === false) {
 
-            setTimeout(function(){
+                _self.searching = true;
 
-                _self.searching = false;
+                setTimeout(function(){
 
-            }, 2000);
+                    _self.searching = false;
+
+                }, 2000);
+
+                window.location = '/search?keyword=' + _self.searchQuery;
+            }
 
         }
 

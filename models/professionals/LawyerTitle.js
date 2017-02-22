@@ -2,8 +2,7 @@ var keystone = require('keystone'),
     Types = keystone.Field.Types
 
 var LawyerTitle = new keystone.List('LawyerTitle', {
-    autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: 'name'
+    autokey: { path: 'slug', from: 'name', unique: true }
 })
 
 LawyerTitle.add({

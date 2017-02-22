@@ -2,8 +2,7 @@ var keystone = require('keystone'),
     Types = keystone.Field.Types
 
 var Industry = new keystone.List('Industry', {
-    autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: 'name'
+    autokey: { path: 'slug', from: 'name', unique: true }
 })
 
 Industry.add({

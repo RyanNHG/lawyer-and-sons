@@ -9,6 +9,12 @@
 
  exports.create = {
  	User: [
- 		{ 'name.first': 'Admin', 'name.last': 'User', 'email': 'admin@keystone.com', 'password': 'password', 'isAdmin': true },
- 	],
+ 		{
+            'name.first': 'Admin',
+            'name.last': 'User',
+            'email': process.env.ADMIN_EMAIL || 'admin@keystone.com',
+            'password': process.env.ADMIN_PASSWORD || 'password',
+            'isAdmin': true
+        }
+ 	]
  };

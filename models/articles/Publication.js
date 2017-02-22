@@ -2,9 +2,7 @@ var keystone = require('keystone'),
     Types = keystone.Field.Types
 
 var Publication = new keystone.List('Publication', {
-    autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: 'name',
-    drilldown: 'authors'
+    autokey: { path: 'slug', from: 'name', unique: true }
 })
 
 Publication.add({
@@ -35,16 +33,22 @@ Publication.add({
 
     industries: {
         type: Types.Relationship,
+        label: 'Related Industries',
         ref: 'Industry',
         many: true
     },
 
     practices: {
         type: Types.Relationship,
+        label: 'Related Practices',
         ref: 'Practice',
         many: true
     }
 
+})
+
+Publication.schema.virtual('__t', function(){
+    return 'Publication';
 })
 
 Publication.register()

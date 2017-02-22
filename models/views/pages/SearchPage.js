@@ -2,8 +2,7 @@ var keystone = require('keystone'),
     Types = keystone.Field.Types
 
 var SearchPage = new keystone.List('SearchPage', {
-    autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: '-name',
+    autokey: { path: 'slug', from: 'name', unique: true }
 })
 
 SearchPage.add({

@@ -3,8 +3,7 @@ var keystone = require('keystone'),
 
 var Link = new keystone.List('Link', {
     autokey: { path: 'slug', from: 'name', unique: true },
-    map: { name: 'label' },
-    defaultSort: 'name'
+    map: { name: 'label' }
 })
 
 Link.add({

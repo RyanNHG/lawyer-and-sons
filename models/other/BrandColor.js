@@ -3,8 +3,7 @@ var keystone = require('keystone'),
 
 var BrandColor = new keystone.List('BrandColor', {
     autokey: { path: 'slug', from: 'name', unique: true },
-    map: { name: 'label' },
-    defaultSort: 'name'
+    map: { name: 'label' }
 })
 
 BrandColor.add({

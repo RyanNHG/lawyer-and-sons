@@ -2,9 +2,7 @@ var keystone = require('keystone'),
     Types = keystone.Field.Types
 
 var HomePage = new keystone.List('HomePage', {
-    autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: '-name',
-    drilldown: 'sections'
+    autokey: { path: 'slug', from: 'name', unique: true }
 })
 
 HomePage.add({

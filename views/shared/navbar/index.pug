@@ -1,20 +1,20 @@
 mixin navbarBrand
 
     a.nav-item( href="/" alt=navbar.brandLabel title=navbar.brandLabel )
-        if navbar.brandLogo
+        if navbar.brandLogo && navbar.brandLogo.url
             img( src=navbar.brandLogo.url alt=navbar.brandLabel style="padding-right: 10px" )
         h3.title.is-5=navbar.brandLabel
 
 mixin longSearchBar
 
     p.control.has-addons
-      input.input.search-input(
+      input.input.search-input.is-medium(
           v-model="searchQuery"
           v-on:keyup.enter="search()"
           v-bind:class="{ 'is-disabled': searching }"
           type="search"
           placeholder=navbar.searchPlaceholder)
-      button.button.is-gray(
+      button.button.is-gray.is-medium(
           v-on:click="search()"
           v-bind:class="{ 'is-disabled': searching, 'is-loading': searching }")
         i.fa.fa-search
@@ -24,11 +24,12 @@ mixin navLink(link)
         href=link.url
         alt=link.label
         title=link.label
+        style="font-size: 1.25rem"
         v-bind:class="{ 'is-active': '" + link.url + "' === pathname, 'is-disabled': '" + link.url + "' === pathname }"
         v-bind:disabled="'" + link.url + "' === pathname")=link.label
 
 #navbar(style="position: fixed; top: 0; width: 100%; z-index: 1;")
-    nav.nav.has-shadow(style="z-index: 1;")
+    nav.nav.has-shadow(style="z-index: 1; height: 62px;")
         .container
 
             .nav-left.is-hidden-mobile
@@ -36,7 +37,7 @@ mixin navLink(link)
 
             .nav-left.is-hidden-tablet
                 .nav-item
-                    button.button.is-gray( v-on:click="toggleMobileMenu()" )
+                    button.button.is-gray.is-large( v-on:click="toggleMobileMenu()" )
                         i.fa.fa-bars
 
             .nav-center.is-hidden-tablet
@@ -49,11 +50,13 @@ mixin navLink(link)
                         +navLink(link)
 
                 .nav-item.is-hidden-touch.is-pulled-right
-                    +longSearchBar
+                    +longSearchBar(false)
 
                 .nav-item.is-hidden-desktop.is-pulled-right
-                    button.button.is-gray( v-on:click="toggleMobileSearch()" )
-                      i.fa.fa-search
+                    button.button.is-gray.is-medium.is-hidden-mobile( v-on:click="toggleMobileSearch()" )
+                        i.fa.fa-search
+                    button.button.is-gray.is-large.is-hidden-tablet( v-on:click="toggleMobileSearch()" )
+                        i.fa.fa-search
 
     .invisible-wall( v-bind:class="{ 'visible': showInvisibleWall }" v-on:click="hideMobileMenus()" )
 

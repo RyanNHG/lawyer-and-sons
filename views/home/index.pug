@@ -24,30 +24,37 @@ block content
 	each section, index in page.sections
 		.hero.is-medium.content.section.page-section(
 			class=(index % 2 == 0 ? "is-default" : "is-primary" ))
-			.container
+			.container(style="width: 100%")
 
 				if section.header || section.subheader
 					.hero-head
+
 						.is-hidden-tablet.has-text-centered
 							+sectionTitle(section)
-						.columns.is-mobile( class=(index % 2 == 0 ? "" : "is-reversed" ) )
-							.column.text-column.section
+							if section.image && section.image.url
+									img( src=section.image.url )
+
+						.columns.is-mobile( class=(index % 2 == 0 || !(section.image && section.image.url) ? "" : "is-reversed" ) )
+
+							div( class=(section.image && section.image.url ? "column text-column section" : "column text-column section is-offset-2-tablet is-two-thirds-tablet" ))
 								.is-hidden-mobile
 									+sectionTitle(section)
 								if section.body || section.callToAction
-									.content!=section.body
+									if section.body
+										.content.has-text-justified!=section.body
 									if section.callToAction
 										a.button.title.is-medium.is-cta(
 											href=section.callToAction.url
 										)='See our ' + section.callToAction.label
-							if section.image
+
+							if section.image && section.image.url
 								.column.is-half.image-column.is-hidden-mobile
 									img( src=section.image.url )
 
 				else if section.body
 					.hero-body
 						if section.body
-							.content!=section.body
+							.content.has-text-justified!=section.body
 
 block scripts
 

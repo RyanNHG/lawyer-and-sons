@@ -2,8 +2,7 @@ var keystone = require('keystone'),
     Types = keystone.Field.Types
 
 var Office = new keystone.List('Office', {
-    autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: 'name'
+    autokey: { path: 'slug', from: 'name', unique: true }
 })
 
 Office.add({

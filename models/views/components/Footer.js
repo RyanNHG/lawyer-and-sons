@@ -2,8 +2,7 @@ var keystone = require('keystone'),
     Types = keystone.Field.Types
 
 var Footer = new keystone.List('Footer', {
-    autokey: { path: 'slug', from: 'name', unique: true },
-    defaultSort: '-name'
+    autokey: { path: 'slug', from: 'name', unique: true }
 })
 
 Footer.add({

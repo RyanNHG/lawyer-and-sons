@@ -5,7 +5,7 @@ html {
     font-family: 'Open Sans';
 }
 
-body {
+body, body input {
     font-family: $body-font;
 }
 
@@ -20,6 +20,18 @@ body {
 
     &.is-bold {
         background: linear-gradient(141deg, $primary-color-hover 0, $primary-color 71%, $primary-color-active 100%)
+    }
+
+}
+
+.is-padded {
+    padding: 20px;
+}
+
+.has-text-justified {
+
+    p {
+        text-align: justify;
     }
 
 }
@@ -71,7 +83,7 @@ body {
         position: absolute;
         width: 100%;
         top: 0;
-        padding-top: 50px;
+        padding-top: 62px;
         height: 0;
     }
 

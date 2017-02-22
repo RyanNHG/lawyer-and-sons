@@ -5,24 +5,29 @@ block content
 	//- 'Intro' Section
 	.intro-section.hero.is-primary.is-bold.is-large
 		.hero-body.has-text-centered
-			h1.title.is-1=page.header
-			h2.subtitle.is-3=page.subheader
-			p.control.has-addons
-				input.input.search-input(
-					v-model="query"
-					v-on:keyup.enter="search()"
-					v-bind:class="{ 'is-disabled': searching }"
-					type="search"
-					placeholder=page.searchPlaceholder)
-				button.button.is-gray(
-					v-on:click="search()"
-					v-bind:class="{ 'is-disabled': searching, 'is-loading': searching }")
-				i.fa.fa-search
+			.container
+				h1.title.is-1=page.header
+				h2.subtitle.is-3=page.subheader
+				p.control.has-addons( style="justify-content: center")
+					input.input.search-input(
+						v-model="query"
+						v-on:keyup.enter="search()"
+						v-bind:class="{ 'is-disabled': searching }"
+						type="search"
+						placeholder=page.placeholder)
+					button.button.is-gray(
+						v-on:click="search()"
+						v-bind:class="{ 'is-disabled': searching, 'is-loading': searching }")
+						i.fa.fa-search
 
-	//- 'Results'
-	h4.title.is-4( v-if="showResultsLabel" v-html="resultsLabel" v-bind:class="{ 'is-danger': showError }" )
-	ul
-		li( v-for="result in displayedResults" v-html="result.name" )
+	//- Search Results
+	.container.section
+		h4.title.is-4.has-text-centered.is-padded.is-marginless( v-if="showResultsLabel" v-html="resultsLabel" v-bind:class="{ 'is-danger': showError }" )
+		ul
+			li( v-for="result in displayedResults")
+				a.box( v-bind:href="result.url" v-bind:alt="result.title")
+						h3.title.is-3( v-html="result.title" )
+						h4.subtitle.is-5( v-html="result.subtitle" )
 
 
 block scripts
