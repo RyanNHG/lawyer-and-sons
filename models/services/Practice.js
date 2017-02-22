@@ -14,11 +14,6 @@ Practice.add({
         initial: true
     },
 
-    practiceArea: {
-        type: Types.Relationship,
-        ref: 'PracticeArea'
-    },
-
     overview: {
         type: Types.Html,
         wysiwyg: true
@@ -26,28 +21,25 @@ Practice.add({
 
     professionals: {
         type: Types.Relationship,
+        label: 'Related Professionals',
         ref: 'Professional',
         many: true
     },
 
     industries: {
         type: Types.Relationship,
+        label: 'Related Industries',
         ref: 'Industry',
-        many: true
-    },
-
-    practices: {
-        type: Types.Relationship,
-        ref: 'Practice',
         many: true
     }
 
 })
 
-// TODO: Ask if "Practice Group" would be a better solution (relates all practice in group)
+Practice.relationship({ path: 'practiceAreas', ref: 'PracticeArea', refPath: 'childPractices' })
+
 Practice.relationship({ path: 'relatedIndustries', ref: 'Industry', refPath: 'practices' })
-Practice.relationship({ path: 'relatedPractices', ref: 'Practice', refPath: 'practices' })
 Practice.relationship({ path: 'relatedLawyers', ref: 'Lawyer', refPath: 'practices' })
 Practice.relationship({ path: 'relatedPublications', ref: 'Publication', refPath: 'practices' })
 
+Practice.defaultColumns = 'name practiceAreas'
 Practice.register()

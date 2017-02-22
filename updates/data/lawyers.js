@@ -1,0 +1,34 @@
+exports = module.exports = [
+    {
+        "_id": "58a8c249814cf8c453d67a80",
+        "name": {
+            "first": "Kenny",
+            "last": "Jones"
+        },
+        "slug": "kenny-jones",
+        "email": "kenny@las.com",
+        "phone": "123-123-1234",
+        "fax": "322-123-1234",
+        "bio": "<p>Lorem ipsum dolor sit amet nisi leo eu magnis quam eget. Sit nam donec consequat sem eget. Quam amet a ultricies venenatis etiam pretium. Sit neque venenatis et quam ridiculus adipiscing elementum tempus donec. Maecenas tempus etiam et dolor eget quis. Ligula in eget augue adipiscing vel semper mollis faucibus vivamus eu tempus.</p>\r\n<p>Vivamus eget felis. Arcu hendrerit donec nullam consequat amet. Feugiat dictum aenean semper pede libero nec massa sit ut. Aenean enim felis quis consectetuer lorem. Quam metus imperdiet eget commodo vivamus dapibus vitae tellus. Nunc hendrerit vulputate enim sit pretium rhoncus lorem dapibus felis ligula venenatis.</p>\r\n<p>Neque lorem dictum eros nascetur sem venenatis felis dui libero integer feugiat luctus. Nunc etiam dolor dapibus dictum. Ut nullam porttitor leo quis sed curabitur nascetur elementum. Quis massa condimentum etiam natoque lorem ultricies ante. Aenean eget eu ante lorem venenatis leo commodo vitae justo odio. Ligula ante imperdiet ultricies quam nisi dictum ut vulputate nulla viverra lorem adipiscing.</p>",
+        "office": "58a8beea64627055536b45eb",
+        "title": "58a8bcd10c395e1153aa907d",
+        "industries": [],
+        "practices": []
+    },
+    {
+        "_id": "58ad10e67dd2a77871e2616a",
+        "name": {
+            "first": "Ryan",
+            "last": "Haskell-Glatz"
+        },
+        "slug": "ryan-haskell-glatz",
+        "email": "ryan@las.com",
+        "phone": "543-123-4622",
+        "fax": "656-232-7562",
+        "bio": "<p>Lean startup paradigm shift ecosystem. Entrepreneur graphical user interface value proposition paradigm shift pitch strategy branding product management agile development crowdfunding interaction design innovator backing. Conversion buzz long tail customer gen-z scrum project crowdfunding agile development ramen monetization rockstar. Twitter analytics beta series A financing crowdfunding. Sales virality strategy backing metrics beta technology channels success. Crowdsource branding supply chain return on investment freemium business-to-business rockstar disruptive twitter holy grail. Paradigm shift bandwidth termsheet. Investor client metrics burn rate iPhone deployment. Crowdfunding churn rate startup seed round traction A/B testing. Long tail assets launch party paradigm shift venture.</p>\r\n<p>&nbsp;</p>\r\n<p>Scrum project hypotheses advisor. Prototype graphical user interface user experience vesting period deployment technology. Pitch seed money conversion freemium funding gen-z hypotheses iPhone iteration infrastructure accelerator. Stock network effects disruptive channels market user experience seed money founders MVP termsheet infrastructure bandwidth. Sales research &amp; development venture deployment bandwidth marketing partnership series A financing beta. Creative ramen responsive web design equity advisor funding stock facebook conversion niche market infographic business model canvas handshake. Beta strategy graphical user interface conversion termsheet metrics innovator equity non-disclosure agreement hypotheses. Bandwidth leverage founders funding business-to-consumer investor. Prototype channels branding business-to-consumer success responsive web design backing supply chain venture. Release pitch ownership technology success growth hacking investor customer iteration monetization low hanging fruit entrepreneur.</p>\r\n<p>&nbsp;</p>\r\n<p>Monetization prototype agile development infographic innovator assets user experience. Influencer seed round angel investor. User experience business plan partner network accelerator social proof gamification monetization A/B testing network effects value proposition lean startup. Termsheet technology ecosystem incubator bootstrapping bandwidth monetization infrastructure product management niche market. A/B testing freemium infographic prototype stock scrum project low hanging fruit. Infographic assets ramen backing vesting period startup conversion growth hacking crowdfunding business model canvas. Ecosystem non-disclosure agreement incubator freemium validation product management influencer equity client. A/B testing MVP return on investment success rockstar low hanging fruit mass market monetization agile development product management business model canvas release customer. Pivot lean startup startup learning curve. Sales value proposition responsive web design ecosystem infrastructure angel investor niche market launch party.</p>\r\n<p>&nbsp;</p>\r\n<p>Strategy founders ownership. IPhone paradigm shift seed round. Client social media seed money strategy infographic iteration gamification virality startup funding growth hacking traction responsive web design analytics. Twitter business plan entrepreneur market direct mailing prototype MVP deployment alpha metrics. Venture direct mailing monetization value proposition channels. User experience stock bandwidth seed round analytics virality channels assets. Gamification ramen sales lean startup conversion first mover advantage angel investor hackathon long tail iPhone founders. Paradigm shift seed money responsive web design backing customer holy grail crowdsource innovator non-disclosure agreement handshake metrics validation scrum project iteration. Creative ownership network effects business model canvas paradigm shift influencer partner network android stealth backing validation release startup. Monetization interaction design handshake vesting period influencer strategy android.</p>\r\n<p>&nbsp;</p>\r\n<p>Virality non-disclosure agreement responsive web design sales business plan venture. Pivot technology stock disruptive assets buzz seed money deployment mass market alpha iteration termsheet iPhone. Paradigm shift first mover advantage low hanging fruit niche market entrepreneur user experience startup. Infographic mass market release. Burn rate buyer crowdfunding market customer entrepreneur iPhone marketing. Entrepreneur MVP bandwidth infrastructure direct mailing gen-z startup accelerator branding handshake termsheet founders. Ownership bootstrapping rockstar stealth startup vesting period assets value proposition prototype. Founders client graphical user interface incubator. Mass market product management scrum project iPad release long tail. Assets validation churn rate monetization return on investment influencer.</p>\r\n<p>&nbsp;</p>",
+        "office": "58a8beea64627055536b45eb",
+        "title": "58a8bc980c395e1153aa907c",
+        "industries": [],
+        "practices": []
+    }
+]

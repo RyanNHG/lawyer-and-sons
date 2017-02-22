@@ -2,5 +2,23 @@ version: '2'
 services:
   mongo:
     image: mongo
+  keystone:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ryannhg/lawyer-and-sons
+    links:
+      - mongo
     ports:
-      - "27017:27017"
+      - "3000:3000"
+    volumes:
+      - ./package.json:/usr/src/app/package.json
+      - ./.env:/usr/src/app/.env
+      - ./app.js:/usr/src/app/app.js
+      - ./routes.js:/usr/src/app/routes.js
+      - ./models:/usr/src/app/models
+      - ./logic:/usr/src/app/logic
+      - ./routes:/usr/src/app/routes
+      - ./updates:/usr/src/app/updates
+      - ./views:/usr/src/app/views
+      - ./public:/usr/src/app/public

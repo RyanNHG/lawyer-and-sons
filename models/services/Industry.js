@@ -38,7 +38,6 @@ Industry.add({
 
 })
 
-// TODO: Ask if "Industry Group" would be a better solution (relates all industries in group)
 Industry.relationship({ path: 'relatedIndustries', ref: 'Industry', refPath: 'industries' })
 Industry.relationship({ path: 'relatedPractices', ref: 'Practice', refPath: 'industries' })
 Industry.relationship({ path: 'relatedLawyers', ref: 'Lawyer', refPath: 'industries' })

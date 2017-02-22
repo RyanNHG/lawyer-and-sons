@@ -9,13 +9,14 @@ block content
 				h1.title.is-1=page.header
 				h2.subtitle.is-3=page.subheader
 				p.control.has-addons( style="justify-content: center")
-					input.input.search-input(
+					input.input.search-input.is-medium(
+						style="min-width: 50vw"
 						v-model="query"
 						v-on:keyup.enter="search()"
 						v-bind:class="{ 'is-disabled': searching }"
 						type="search"
 						placeholder=page.placeholder)
-					button.button.is-gray(
+					button.button.is-gray.is-medium(
 						v-on:click="search()"
 						v-bind:class="{ 'is-disabled': searching, 'is-loading': searching }")
 						i.fa.fa-search

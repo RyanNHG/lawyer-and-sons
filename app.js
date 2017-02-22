@@ -31,7 +31,7 @@ keystone.init({
 	'views': './views',
 
 	// Database and User Auth Options (http://keystonejs.com/docs/configuration/#options-database)
-	'mongo': process.env.MONGO_URI || 'mongodb://localhost/keystonejs',
+	'mongo': process.env.MONGO_URI || 'mongodb://mongo/keystonejs',
 	'auth': true,
 	'user model': 'User',
 	'cookie secret': process.env.COOKIE_SECRET || 'cookie-secret',

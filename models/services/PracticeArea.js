@@ -14,13 +14,18 @@ PracticeArea.add({
         initial: true
     },
 
-    practice: {
+    topLevelPractice: {
         type: Types.Relationship,
         ref: 'Practice'
+    },
+
+    childPractices: {
+        type: Types.Relationship,
+        ref: 'Practice',
+        many: true
     }
 
 })
 
-PracticeArea.relationship({ path: 'practices', ref: 'Practice', refPath: 'practiceArea' })
-
+PracticeArea.defaultColumns = 'name topLevelPractice'
 PracticeArea.register()
