@@ -1,38 +1,24 @@
 # Lawyer and Sons
-> An attempt to make web development amazing, because love.
+> A full site build using _[KeystoneJS](http://www.keystonejs.com)_, _[MongoDB](http://www.mongodb.com)_, and [Docker](http://www.docker.com)
 
-### Overview
+### Features
 
-This is a website powered by _[KeystoneJS](http://www.keystonejs.com)_, _[MongoDB](http://www.mongodb.com)_, all contained in an isolated [Docker](http://www.docker.com) environment.
+1. Get up-and-running with one command (`docker-compose up`)
+1. Runs on all platforms (Windows, Mac, Linux)
+1. No need to download/restore database
+1. Save the file, refresh the page.
 
-One of the benefits of using __Docker__ for local development, is that it takes care of creating the NodeJS and MongoDB services for you. No more worrying about following complicated setup steps just to get up and running.
-
-One command (`docker-compose up`) will create your own local KeystoneJS server, MongoDB database, and __automatically__ updates the site whenever you save a file.
-
-#### No need to worry about:
-- Installing MongoDB or NodeJS (and worrying about the right versions)
-
-- Manually restarting your server after updating `models` or `routes`. 
-
-- Compiling `SASS` files (happens automatically)
-
-- Worrying about environment variables (project works right out of the box)
-
-- Commiting generated files to the repo
-
-- Running `gulp`, `browserify`, `nodemon`, or `browsersync`!
-
-- Getting database backups (local db is automatically filled with sample data)
+---
 
 
-All that stuff is repetitive and tedious computer work.
+### Local Development
 
-Just focus on the _human_ part: __Actually writing code.__
-
-### Get Started
 1. Install [Docker](http://www.docker.com)
 1. Run `docker-compose up`
 1. Your site is ready on port `3000`!
+
+---
+
 
 #### Signing in to KeystoneJS
 > For local development, an account has been created for you.
@@ -42,6 +28,27 @@ __Username__: `admin@keystone.com`
 __Password__: `password`
 
 ---
+
+
+### Customizing your Environment
+> Just create a `.env` file in the project root.
+
+__Environment Variable__ | __Description__ | __Example__
+------------------------ | --------------- | -----------
+__`MONGO_URI`__ |  MongoDB connection string | `mongodb://localhost/db`
+__`NODE_ENV`__ | Specifies whether we're running in production or development mode. | `production`
+__`CLOUDINARY_URL`__ | Points to the Cloudinary Image service. | `cloudinary://api_key:api_secret@cloud_name`
+__`PORT`__ | Which port to host the server on | `3000`
+__`COOKIE_SECRET`__ | Used for encryption | `23r2fm24f4fp23f23f`
+
+__Example `.env` file:__
+
+```
+MONGO_URI=mongodb://192.168.99.100/some-database
+PORT=1234
+```
+---
+
 
 ### Project Structure
 
@@ -56,8 +63,42 @@ __`public/`__ | Assets (`sass`, images, etc) for our site
 __`logic/`__ | Reusable functionality that is used by multiple routes
 __`updates/`__ | Initializes empty databases (no more downloading backups)
 
+---
 
-### Navigating around
+### Project Overview
+
+After you install Docker and pull this code, you will have everything you need to get started. 
+
+Opening up a terminal and typing `docker-compose up` will automatically set up an isolated development environment. This command does a few simple things:
+
+- Creates a local MongoDB container (stores data).
+- Creates a local NodeJS container (runs server).
+- Connects them together so they can communicate.
+- Runs your NodeJS website at http://localhost:3000
+  - For Windows 8 users: http://192.168.99.100:3000
+
+When you first run this project, KeystoneJS will automatically create MongoDB collections from the JSON found in the `updates/data` folder. This means there is __no need to download or restore your databases__.
+
+After that, you can login at http://localhost:3000/keystone to manage content, or open up your favorite text editor to start changing code.
+
+When you change a `model` or a `route`, the server will __automatically__ refresh for you.
+
+The server will also refresh if you modify any `logic`, `updates`, or either the `app.js` or `routes.js` files.
+
+For frontend development, we are using Pug templates in place of HTML, and SASS in place of CSS.
+
+Once again, changes to these files will __automatically__ and __immediately__ reflect on page refresh.
+
+Instead of bundling all of our Javascript into one big, minified blob, we are using pug to only include the JS we need for the page.
+
+The JS framework used for this project is VueJS. It is as simple as jQuery with the scalability of React and Angular. Just like our Pug and SASS, any client-side JS changes will automatically appear on the frontend.
+
+Docker made it easy to guarantee a consistent, automated environment. Now you can focus on the human part: __Actually writing code, fixing bugs, and adding features__.
+
+---
+
+
+### New to NodeJS?
 
 What's great about NodeJS is that you can follow everything by starting in the __`app.js`__. 
 
