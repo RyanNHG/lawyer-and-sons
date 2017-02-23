@@ -21,8 +21,8 @@ Practice.add({
 
     professionals: {
         type: Types.Relationship,
-        label: 'Related Professionals',
-        ref: 'Professional',
+        label: 'Related Lawyers',
+        ref: 'Lawyer',
         many: true
     },
 

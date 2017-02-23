@@ -24,6 +24,6 @@ Office.add({
 
 })
 
-Office.relationship({ path: 'relatedProfessionals', ref: 'Professional', refPath: 'office' })
+Office.relationship({ path: 'relatedLawyers', ref: 'Lawyer', refPath: 'office' })
 
 Office.register()

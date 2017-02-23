@@ -21,7 +21,7 @@ Publication.add({
 
     authors: {
         type: Types.Relationship,
-        ref: 'Professional',
+        ref: 'Lawyer',
         many: true,
         collapsed: true
     },

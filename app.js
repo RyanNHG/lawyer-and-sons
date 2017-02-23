@@ -105,4 +105,8 @@ keystone.set('nav', {
 
 
 // Start Keystone
-keystone.start()
+keystone.start({
+	onStart: (process.env.NODE_ENV !== 'production')
+		? require('./updates/data')(keystone)
+		: function(){}
+})

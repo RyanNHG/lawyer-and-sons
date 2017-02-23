@@ -20,7 +20,7 @@ Industry.add({
 
     professionals: {
         type: Types.Relationship,
-        ref: 'Professional',
+        ref: 'Lawyer',
         many: true
     },
 

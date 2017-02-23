@@ -3,11 +3,38 @@ var keystone = require('keystone'),
 
 var Lawyer = new keystone.List('Lawyer', {
     autokey: { path: 'slug', from: 'name', unique: true },
-    hidden: false,
-    inherits: require('./_Professional')
 })
 
 Lawyer.add({
+
+    name: {
+        type: Types.Name,
+        initial: true,
+        required: true,
+        index: true
+    },
+
+    email: {
+        type: Types.Email
+    },
+
+    phone: {
+        type: Types.Text
+    },
+
+    fax: {
+        type: Types.Text
+    },
+
+    bio: {
+        type: Types.Html,
+        wysiwyg: true
+    },
+
+    office: {
+        type: Types.Relationship,
+        ref: 'Office'
+    },
 
     title: {
         type: Types.Relationship,
