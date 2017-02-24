@@ -36,7 +36,7 @@ function getIndustry (slug) {
     return Industry.model
         .find( { slug: slug })
         .limit(1)
-        .populate('professionals industries')
+        .populate('practices professionals industries')
         .exec()
         .then( function (industries) {
 
