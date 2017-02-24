@@ -7,7 +7,7 @@ mixin relatedProfessionalsSection(title, prefix, list)
 mixin relatedSection(title, prefix, list, hasComplexName)
     if list.length > 0
         .section( class=("related-" + prefix) )
-            h3.title.is-2=title
+            h3.title.is-3=title
             .columns
                 each item in list
                     .column.is-half-tablet.is-one-third-desktop

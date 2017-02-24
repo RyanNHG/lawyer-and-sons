@@ -1,0 +1,37 @@
+extends ../layout.pug
+
+include ../shared/detail-pages/related-sections.pug
+
+block head
+    link( rel="stylesheet" href="/styles/detail.css" )
+
+block content
+
+    .detail-view
+
+        .header-section.hero.is-primary.is-medium.has-text-centered
+            .hero-body
+                .container
+                    h1.title.is-1=publication.name
+                    if publication.authors.length > 0
+                        h2.subtitle.is-3
+                            each author, index in publication.authors
+                                if index != 0
+                                    span.is-hidden-mobile=" | "
+                                    br.is-hidden-tablet
+                                a(
+                                    href="/lawyers/" + author.slug
+                                    alt=(author.name.first + " " + author.name.last)
+                                )=(author.name.first + " " + author.name.last)
+                    h3.subtitle.is-3=publication.formattedDate
+
+        .content-section
+            .container
+
+                .overview.section
+                    .content!=publication.body
+
+                hr
+
+                +relatedServicesSection("Related Industries", "industries", publication.industries)
+                +relatedServicesSection("Related Practices", "practices", publication.practices)
