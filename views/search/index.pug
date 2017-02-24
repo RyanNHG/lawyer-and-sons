@@ -3,26 +3,26 @@ extends ../layout.pug
 block content
 
 	//- 'Intro' Section
-	.intro-section.hero.is-primary.is-bold.is-large
+	.intro-section.hero.is-primary.is-bold.is-medium
 		.hero-body.has-text-centered
 			.container
 				h1.title.is-1=page.header
 				h2.subtitle.is-3=page.subheader
 				p.control.has-addons( style="justify-content: center")
-					input.input.search-input.is-medium(
+					input.input.search-input.is-large(
 						style="min-width: 50%"
 						v-model="query"
 						v-on:keyup.enter="search()"
 						v-bind:class="{ 'is-disabled': searching }"
 						type="search"
 						v-bind:placeholder=" lastQuery ? lastQuery :'" + page.placeholder + "'")
-					button.button.is-gray.is-medium(
+					button.button.is-gray.is-large(
 						v-on:click="search()"
 						v-bind:class="{ 'is-disabled': searching, 'is-loading': searching }")
 						i.fa.fa-search
 
 	//- Search Results
-	.container.section
+	.container.section( style="background: none; padding: 1.5rem;")
 		h4.title.is-4.has-text-centered.is-padded.is-marginless( v-if="showResultsLabel" v-html="resultsLabel" v-bind:class="{ 'is-danger': showError }" )
 		ul
 			li( v-for="result in displayedResults")

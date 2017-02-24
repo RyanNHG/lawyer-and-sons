@@ -15,7 +15,8 @@ body, body input {
     text-transform: uppercase;
 }
 
-.hero.is-primary {
+.hero.is-primary,
+.tag.is-primary {
 
     background-color: $primary-color;
 
@@ -24,6 +25,7 @@ body, body input {
     }
 
 }
+
 
 .is-padded {
     padding: 20px;

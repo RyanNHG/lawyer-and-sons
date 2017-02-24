@@ -1,0 +1,71 @@
+extends ../layout.pug
+
+block head
+    link( rel="stylesheet" href="/styles/detail.css" )
+
+block content
+
+    .detail-view
+
+        .header-section.hero.is-primary.is-medium
+            .hero-foot
+                .container
+                    .columns
+                        .image-column.column.is-narrow
+                            img.image(
+                                src="https://placekitten.com/g/256/256"
+                                alt=(professional.name.first + ' ' + professional.name.last)
+                            )
+                        .text-column.column
+                            h1.title.is-1=professional.name.first + ' ' + professional.name.last
+                            h2.subtitle.is-3
+                                span=professional.title.name
+                                if professional.office
+                                    span=' | '
+                                    a(
+                                        href="/offices/" + professional.office.slug
+                                        alt=professional.office.name
+                                    )=professional.office.name
+
+        .content-section
+            .container
+
+                .contact-information.content
+                    .is-flex
+                        a.tag.is-large.is-primary(
+                             href="mailto:" + professional.email
+                             alt="Send mail to " + professional.email
+                             title="Send mail to " + professional.email
+                        )='Email: ' + professional.email
+                        a.tag.is-large.is-primary(
+                             href="tel:" + professional.phone
+                             alt="Call " + professional.phone
+                             title="Call " + professional.phone
+                        )='Phone: ' + professional.phone
+                        a.tag.is-large.is-primary(
+                             href="tel:" + professional.fax
+                             alt="Fax " + professional.fax
+                             title="Fax " + professional.fax
+                        )='Fax: ' + professional.fax
+
+                .bio.section
+                    h3.title.is-2='About ' + professional.name.first
+                    .content!=professional.bio
+
+
+                +relatedServicesSection("Industries", "industries", professional.industries)
+
+                +relatedServicesSection("Practices", "practices", professional.practices)
+
+mixin relatedServicesSection(title, prefix, list)
+    if list.length > 0
+        .section( class=("related-" + prefix) )
+            h3.title.is-2=title
+            .columns
+                each item in list
+                    .column.is-half-tablet.is-one-third-desktop
+                        a.box.has-text-centered.section(
+                            href="/" + prefix + "/" + item.slug
+                            alt=item.name
+                        )
+                            h4.title.is-4=item.name
