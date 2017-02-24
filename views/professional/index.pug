@@ -1,5 +1,7 @@
 extends ../layout.pug
 
+include ../shared/detail-pages/related-sections.pug
+
 block head
     link( rel="stylesheet" href="/styles/detail.css" )
 
@@ -56,16 +58,3 @@ block content
                 +relatedServicesSection("Industries", "industries", professional.industries)
 
                 +relatedServicesSection("Practices", "practices", professional.practices)
-
-mixin relatedServicesSection(title, prefix, list)
-    if list.length > 0
-        .section( class=("related-" + prefix) )
-            h3.title.is-2=title
-            .columns
-                each item in list
-                    .column.is-half-tablet.is-one-third-desktop
-                        a.box.has-text-centered.section(
-                            href="/" + prefix + "/" + item.slug
-                            alt=item.name
-                        )
-                            h4.title.is-4=item.name

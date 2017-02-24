@@ -47,8 +47,4 @@ Publication.add({
 
 })
 
-Publication.schema.virtual('__t', function(){
-    return 'Publication';
-})
-
 Publication.register()

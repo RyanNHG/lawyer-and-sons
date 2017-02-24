@@ -17,7 +17,7 @@ module.exports = function(req, res) {
 
             locals.professional = professional
 
-            view.render('professionals/index')
+            view.render('professional/index')
 
         }
 

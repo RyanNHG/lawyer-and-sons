@@ -1,0 +1,18 @@
+mixin relatedServicesSection(title, prefix, list)
+    +relatedSection(title, prefix, list, false)
+
+mixin relatedProfessionalsSection(title, prefix, list)
+        +relatedSection(title, prefix, list, true)
+
+mixin relatedSection(title, prefix, list, hasComplexName)
+    if list.length > 0
+        .section( class=("related-" + prefix) )
+            h3.title.is-2=title
+            .columns
+                each item in list
+                    .column.is-half-tablet.is-one-third-desktop
+                        a.box.has-text-centered.section(
+                            href="/" + prefix + "/" + item.slug
+                            alt=( hasComplexName ? (item.name.first + ' ' + item.name.last) : item.name )
+                        )
+                            h4.title.is-4=( hasComplexName ? (item.name.first + ' ' + item.name.last) : item.name )

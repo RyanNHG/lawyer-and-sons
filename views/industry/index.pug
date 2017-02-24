@@ -1,0 +1,26 @@
+extends ../layout.pug
+
+include ../shared/detail-pages/related-sections.pug
+
+block head
+    link( rel="stylesheet" href="/styles/detail.css" )
+
+block content
+
+    .detail-view
+
+        .header-section.hero.is-primary.is-medium.has-text-centered
+            .hero-body
+                .container
+                    h1.title.is-1=industry.name
+                    h2.subtitle.is-3='Industry'
+
+        .content-section
+            .container
+                .overview.section
+                    h3.title.is-2='Overview'
+                    .content!=industry.overview
+
+                +relatedServicesSection("Related Industries", "industries", industry.industries)
+                +relatedServicesSection("Related Practices", "practices", industry.practices)
+                +relatedProfessionalsSection("Related Professionals", "lawyers", industry.professionals)

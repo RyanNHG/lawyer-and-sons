@@ -13,6 +13,8 @@ exports = module.exports = function(routes) {
 
 		// Detail Pages
 		app.get('/lawyers/:lawyerSlug', routes.views['professional'])
+		app.get('/practices/:practiceSlug', routes.views['practice'])
+		app.get('/industries/:industrySlug', routes.views['industry'])
 
 		// API
 		app.get('/api/search', routes.api['search'])
