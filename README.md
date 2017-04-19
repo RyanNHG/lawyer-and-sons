@@ -67,7 +67,7 @@ __`updates/`__ | Initializes empty databases (no more downloading backups)
 
 ### Project Overview
 
-After you install Docker and pull this code, you will have everything you need to get started. 
+After you install Docker and pull this code, you will have everything you need to get started.
 
 Opening up a terminal and typing `docker-compose up` will automatically set up an isolated development environment. This command does a few simple things:
 
@@ -100,7 +100,7 @@ Docker made it easy to guarantee a consistent, automated environment. Now you ca
 
 ### New to NodeJS?
 
-What's great about NodeJS is that you can follow everything by starting in the __`app.js`__. 
+What's great about NodeJS is that you can follow everything by starting in the __`app.js`__.
 
 There are no hidden configuration files to worry about.
 
@@ -115,7 +115,7 @@ __`app.js`__
 ```js
 var someString = require('./exportsSomeString.js');
 
-console.log(string);
+console.log(someString);
 ```
 
 __`exportsSomeString.js`__
